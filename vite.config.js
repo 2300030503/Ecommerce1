@@ -2,8 +2,7 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
 
-// Dynamically set base depending on environment
-export default defineConfig(({ mode }) => ({
+export default defineConfig({
   plugins: [react()],
-  base: mode === 'production' ? '/Ecommerce1/' : '/', // '/' for local, '/Ecommerce1/' for GitHub Pages
-}));
+  base: '/Ecommerce1/', // your repo name here
+});
