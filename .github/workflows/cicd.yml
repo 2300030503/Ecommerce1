@@ -23,19 +23,13 @@ jobs:
           node-version: 18
 
       - name: Install dependencies
-        run: |
-          cd frontend
-          npm install
+        run: npm install
 
       - name: Run tests
-        run: |
-          cd frontend
-          npm test --if-present
+        run: npm test --if-present
 
       - name: Build the project
-        run: |
-          cd frontend
-          npm run build
+        run: npm run build
 
       - name: Configure Git
         run: |
@@ -46,7 +40,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          cd frontend
-          git config --global user.name "2300030503"
-          git config --global user.email "2300030503@kluniversity.in"
           npx gh-pages -d dist -r https://x-access-token:${GITHUB_TOKEN}@github.com/2300030503/Ecommerce1.git
