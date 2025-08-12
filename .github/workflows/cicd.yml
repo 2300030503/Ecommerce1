@@ -36,9 +36,11 @@ jobs:
       - name: Build the project
         run: npm run build
 
-      # 6. Deploy to GitHub Pages
-      - name: Deploy to GitHub Pages
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          npx gh-pages -d dist -r https://x-access-token:${GITHUB_TOKEN}@github.com/2300030503/Ecommerce1.git
+      - name: Build the project
+  run: npm run build
+
+- name: Deploy to GitHub Pages
+  env:
+    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  run: |
+    npx gh-pages -d dist -r https://x-access-token:${GITHUB_TOKEN}@github.com/2300030503/Ecommerce1.git
