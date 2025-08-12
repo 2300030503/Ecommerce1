@@ -25,7 +25,7 @@ jobs:
       - name: Install dependencies
         run: |
           cd frontend
-          npm ci
+          npm install
 
       - name: Run tests
         run: |
@@ -37,13 +37,11 @@ jobs:
           cd frontend
           npm run build
 
-      # Configure Git identity
       - name: Configure Git
         run: |
           git config --global user.name "2300030503"
           git config --global user.email "2300030503@kluniversity.in"
 
-      # Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -51,5 +49,4 @@ jobs:
           cd frontend
           git config --global user.name "2300030503"
           git config --global user.email "2300030503@kluniversity.in"
-          npm install -g gh-pages
-          gh-pages -d dist -r https://x-access-token:${GITHUB_TOKEN}@github.com/2300030503/Ecommerce1.git
+          npx gh-pages -d dist -r https://x-access-token:${GITHUB_TOKEN}@github.com/2300030503/Ecommerce1.git
